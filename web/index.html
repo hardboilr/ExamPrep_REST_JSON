@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Random test data generator</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- jQuery -->
+        <script src ="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- AngularJS -->
+        <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <!-- Custom components -->
+        <script src="assets/app.js"></script> 
     </head>
     <body>
-        <div>TODO write content</div>
-        
-        <div>
-            <table id="table">
+        <div class="col-md-3" ng-app="DataApp" ng-controller="DataController as ctrl">
+             <table class="table" ng-init="ctrl.getRandomData(100,'fname,lname,city')">
+                <thead>
+                    <tr>
+                        <td>No.</td>
+                        <td ng-repeat="(key,val) in ctrl.data[0]">{{key}}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="object in ctrl.data">
+                        <td>{{$index+1}}</td>
+                        <td ng-repeat="(key,val) in object">{{val}}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
-
-        <div>
-            <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-            <link rel="stylesheet" property="" type="text/boostrap" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-            <link rel="stylesheet" property="" type="text/boostrap" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-            <script src="assets/js.js"></script> 
-        </div>
+        
+<!--        <div> 
+            <table id="table"></table>
+        </div>-->
     </body>
 </html>
