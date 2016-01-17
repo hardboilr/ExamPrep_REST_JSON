@@ -19,6 +19,6 @@ public class RestService {
     @Path("{number}/{person}")
     public Response getQuote(@PathParam("number") int number, @PathParam("person") String person) {
         String data = RandomDataGenerator.getData(number, person);
-        return Response.status(Response.Status.OK).entity(data).type(MediaType.APPLICATION_JSON).build();
+        return Response.status(Response.Status.OK).entity(data).header("Access-Control-Allow-Origin", "*").type(MediaType.APPLICATION_JSON).build();
     }
 }
